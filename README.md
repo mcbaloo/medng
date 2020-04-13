@@ -1,9 +1,7 @@
 # medng
 
-A new Flutter project.
+A Covid-19 tracker
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
 
 Medng is a Covid-19 Mobile application tracker for cases in nigeria. It is written in flutters

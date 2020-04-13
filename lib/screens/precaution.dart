@@ -115,7 +115,7 @@ class Precaution extends StatelessWidget {
                                   color: Colors.white,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(16))),
-                              width: MediaQuery.of(context).size.height / 4,
+                              width: MediaQuery.of(context).size.width * 0.4,
                               height: MediaQuery.of(context).size.height / 3,
                               child: Column(children: <Widget>[
                                 Image(
@@ -127,10 +127,9 @@ class Precaution extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                Center(
+                                Expanded(
                                   child: Text(
-                                    "Cover mouth and nose with flexed elbow or tissue when coughing or sneezing. Dipose Used tissue",
-                                    textAlign: TextAlign.center,
+                                    "Cover mouth and nose with flexed elbow or tissue when coughing or sneezing. Dipose of Used tissue.",
                                   ),
                                 )
                               ]),
@@ -140,7 +139,7 @@ class Precaution extends StatelessWidget {
                                   color: Colors.white,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(16))),
-                              width: MediaQuery.of(context).size.height / 4,
+                              width: MediaQuery.of(context).size.width * 0.4,
                               height: MediaQuery.of(context).size.height / 3,
                               child: Column(children: <Widget>[
                                 Image(
@@ -152,10 +151,9 @@ class Precaution extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                Center(
+                                Expanded(
                                   child: Text(
                                     "Avoid close contact with anyone who has cold or flu-like symptoms",
-                                    textAlign: TextAlign.center,
                                   ),
                                 )
                               ]),
