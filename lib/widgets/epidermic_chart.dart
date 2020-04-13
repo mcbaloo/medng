@@ -36,8 +36,8 @@ class _EpidermiChartState extends State<EpidermiChart> {
     Timer.periodic(Duration(minutes: 5), (timer) {
       getStateData().then((value) {
         setState(() {
-          dataMap.putIfAbsent("Total Confirmed cases",
-              () => double.parse(value["cases"].toString()));
+          dataMap.putIfAbsent(
+              "Active cases", () => double.parse(value["active"].toString()));
           dataMap.putIfAbsent(
               "Recovered", () => double.parse(value["recovered"].toString()));
           dataMap.putIfAbsent(

@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:medng/models/dailyModel.dart';
+
 class Case extends StatefulWidget {
   Case({Key key}) : super(key: key);
 
@@ -13,9 +15,9 @@ class Case extends StatefulWidget {
 class CaseState extends State<Case> {
   var cases = 0;
   Timer timer;
-  Future<List> getStateData() async {
-    String url =
-        "https://api.covid19api.com/country/nigeria/status/confirmed/live";
+  Future getStateData() async {
+    String url = "https://corona.lmao.ninja/countries/Nigeria";
+    //"https://api.covid19api.com/country/nigeria/status/confirmed/live";
     //"https://covid9ja.herokuapp.com/api/confirmed";
     http.Response response = await http.get(url);
     //var res =
@@ -26,7 +28,8 @@ class CaseState extends State<Case> {
   void initState() {
     getStateData().then((value) {
       setState(() {
-        cases = int.parse(value.last["Cases"].toString());
+        cases = int.parse(value["cases"].toString());
+        //int.parse(value.last["Cases"].toString());
       });
     });
     setUpTimedFetch();
@@ -39,7 +42,8 @@ class CaseState extends State<Case> {
     Timer.periodic(Duration(minutes: 5), (timer) {
       getStateData().then((value) {
         setState(() {
-          cases = int.parse(value.last["Cases"].toString());
+          cases = int.parse(value["cases"].toString());
+          //cases = int.parse(value.last["Cases"].toString());
         });
       });
     });

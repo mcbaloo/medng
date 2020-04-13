@@ -21,11 +21,11 @@ class DailyCaseState extends State<DailyCase> {
   }
 
   void initState() {
-    // getStateData().then((value) {
-    //   setState(() {
-    //     cases = int.parse(value["todayCases"].toString());
-    //   });
-    // });
+    getStateData().then((value) {
+      setState(() {
+        cases = int.parse(value["todayCases"].toString());
+      });
+    });
     setUpTimedFetch();
     //});
     //timer = Timer.periodic(Duration(minutes: 3), (Timer t) => addValue());

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
 class NndcContact extends StatefulWidget {
@@ -11,6 +12,7 @@ class NndcContact extends StatefulWidget {
 class _NndcContact extends State<NndcContact> {
   @override
   Widget build(BuildContext context) {
+    double size = MediaQuery.of(context).size.width / 18;
     return SafeArea(
       child: ListView(
         padding: EdgeInsets.all(18),
@@ -49,6 +51,10 @@ class _NndcContact extends State<NndcContact> {
                     color: Colors.white),
                 child: NcdcDetails(),
               ),
+              SizedBox(
+                height: 20,
+              ),
+              StateZone("North-Central", size),
             ],
           ),
         ],
@@ -56,6 +62,66 @@ class _NndcContact extends State<NndcContact> {
     );
   }
 }
+
+Widget StateZone(String zone, double size) => Card(
+      elevation: 0,
+      child: Column(
+        children: <Widget>[
+          ListTile(
+            leading: Icon(Icons.location_on, size: 20),
+            title: Text(zone,
+                style: TextStyle(color: Colors.black, fontSize: size)),
+          ),
+          //SizedBox(height: 5),
+          GestureDetector(
+            onTap: () => _lunchPhone,
+            child: ListTile(
+              leading: Icon(Icons.phone, size: 15),
+              title: Text('Benue State'),
+              subtitle:
+                  Text('0800097000010', style: TextStyle(color: Colors.blue)),
+            ),
+          ),
+
+          ListTile(
+            leading: Icon(Icons.phone, size: 15),
+            title: Text('FCT'),
+            subtitle:
+                Text('0800097000010', style: TextStyle(color: Colors.blue)),
+          ),
+          ListTile(
+            leading: Icon(Icons.phone, size: 15),
+            title: Text('Kogi State'),
+            subtitle:
+                Text('0800097000010', style: TextStyle(color: Colors.blue)),
+          ),
+          ListTile(
+            leading: Icon(Icons.phone, size: 15),
+            title: Text('Kwara State'),
+            subtitle:
+                Text('0800097000010', style: TextStyle(color: Colors.blue)),
+          ),
+          ListTile(
+            leading: Icon(Icons.phone, size: 15),
+            title: Text('Nasarawa State'),
+            subtitle:
+                Text('0800097000010', style: TextStyle(color: Colors.blue)),
+          ),
+          ListTile(
+            leading: Icon(Icons.phone, size: 15),
+            title: Text('Niger State'),
+            subtitle:
+                Text('0800097000010', style: TextStyle(color: Colors.blue)),
+          ),
+          ListTile(
+            leading: Icon(Icons.phone, size: 15),
+            title: Text('Plateau State'),
+            subtitle:
+                Text('0800097000010', style: TextStyle(color: Colors.blue)),
+          ),
+        ],
+      ),
+    );
 
 Widget NcdcDetails() => Card(
       elevation: 0,
@@ -75,16 +141,15 @@ Widget NcdcDetails() => Card(
                   Text('0800097000010', style: TextStyle(color: Colors.black)),
             ),
           ),
-
-          // ListTile(
-          //   leading: Icon(FontAwesomeIcons, size: 20),
-          //   title: Text('@NCDCgov', style: TextStyle(color: Colors.black)),
-          // ),
-          // ListTile(
-          //   leading: Icon(FontAwesomeIcons.phone, size: 20),
-          //   title: Text('COVID19.NCDC.GOV.NG',
-          //       style: TextStyle(color: Colors.black)),
-          // ),
+          ListTile(
+            leading: Icon(FontAwesomeIcons.twitter, size: 20),
+            title: Text('@NCDCgov', style: TextStyle(color: Colors.black)),
+          ),
+          ListTile(
+            leading: Icon(FontAwesomeIcons.facebook, size: 20),
+            title: Text('COVID19.NCDC.GOV.NG',
+                style: TextStyle(color: Colors.black)),
+          ),
         ],
       ),
     );

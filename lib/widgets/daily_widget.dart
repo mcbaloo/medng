@@ -19,9 +19,9 @@ class _DailyWidgetState extends State<DailyWidget> {
 
   @override
   void initState() {
-    // setState(() {
-    //   DailyModelFuture = getResponse();
-    // });
+    setState(() {
+      DailyModelFuture = getResponse();
+    });
     // });
     setUpTimedFetch();
     super.initState();
@@ -79,6 +79,11 @@ class _DailyWidgetState extends State<DailyWidget> {
                                 snapshot.data.active.toString(), Colors.blue),
                             getListItemUI("C", "Critcal Cases",
                                 snapshot.data.critical.toString(), Colors.red),
+                            getListItemUI(
+                                "D",
+                                "Total Deaths",
+                                snapshot.data.todayDeaths.toString(),
+                                Colors.red),
                           ]),
                         ),
                       )
