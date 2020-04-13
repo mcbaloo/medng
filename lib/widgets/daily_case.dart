@@ -21,22 +21,26 @@ class DailyCaseState extends State<DailyCase> {
   }
 
   void initState() {
-    getStateData().then((value) {
-      setState(() {
-        cases = int.parse(value["todayCases"].toString());
-      });
-    });
+    // getStateData().then((value) {
+    //   setState(() {
+    //     cases = int.parse(value["todayCases"].toString());
+    //   });
+    // });
+    setUpTimedFetch();
     //});
     //timer = Timer.periodic(Duration(minutes: 3), (Timer t) => addValue());
     super.initState();
   }
-  // void addValue() {
-  //   setState(() {
-  //     getStateData().then((value) {
-  //       value.forEach((f) => {cases += int.parse(f["values"].toString())});
-  //     });
-  //   });
-  // }
+
+  setUpTimedFetch() {
+    Timer.periodic(Duration(minutes: 5), (timer) {
+      getStateData().then((value) {
+        setState(() {
+          cases = int.parse(value.last["Cases"].toString());
+        });
+      });
+    });
+  }
 
   @override
   void dispose() {

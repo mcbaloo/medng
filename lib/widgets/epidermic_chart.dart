@@ -27,7 +27,24 @@ class _EpidermiChartState extends State<EpidermiChart> {
             "Deaths", () => double.parse(value["deaths"].toString()));
       });
     });
+
+    setUpTimedFetch();
     super.initState();
+  }
+
+  setUpTimedFetch() {
+    Timer.periodic(Duration(minutes: 5), (timer) {
+      getStateData().then((value) {
+        setState(() {
+          dataMap.putIfAbsent("Total Confirmed cases",
+              () => double.parse(value["cases"].toString()));
+          dataMap.putIfAbsent(
+              "Recovered", () => double.parse(value["recovered"].toString()));
+          dataMap.putIfAbsent(
+              "Deaths", () => double.parse(value["deaths"].toString()));
+        });
+      });
+    });
   }
 
   Future getStateData() async {

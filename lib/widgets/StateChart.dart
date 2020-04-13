@@ -23,8 +23,17 @@ class _StateChartState extends State<StateChart> {
     setState(() {
       StateListFuture = getStateData();
     });
+    setUpTimedFetch();
     // });
     super.initState();
+  }
+
+  setUpTimedFetch() {
+    Timer.periodic(Duration(minutes: 5), (timer) {
+      setState(() {
+        StateListFuture = getStateData();
+      });
+    });
   }
 
   Future<StateListModel> getStateData() async {

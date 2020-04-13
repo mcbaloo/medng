@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -18,11 +19,20 @@ class _DailyWidgetState extends State<DailyWidget> {
 
   @override
   void initState() {
-    setState(() {
-      DailyModelFuture = getResponse();
-    });
+    // setState(() {
+    //   DailyModelFuture = getResponse();
     // });
+    // });
+    setUpTimedFetch();
     super.initState();
+  }
+
+  setUpTimedFetch() {
+    Timer.periodic(Duration(minutes: 5), (timer) {
+      setState(() {
+        DailyModelFuture = getResponse();
+      });
+    });
   }
 
   Future<DailyModel> getResponse() async {
