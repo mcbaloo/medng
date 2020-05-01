@@ -36,7 +36,7 @@ class _DailyWidgetState extends State<DailyWidget> {
   }
 
   Future<DailyModel> getResponse() async {
-    String url = "https://corona.lmao.ninja/countries/Nigeria";
+    String url = "https://corona.lmao.ninja/v2/countries/Nigeria";
     final response = await http.get(url);
     return DailyModel.fromJson(json.decode(response.body));
   }
@@ -82,7 +82,7 @@ class _DailyWidgetState extends State<DailyWidget> {
                             getListItemUI(
                                 "D",
                                 "Total Deaths",
-                                snapshot.data.todayDeaths.toString(),
+                                snapshot.data.deaths.toString(),
                                 Colors.red),
                           ]),
                         ),

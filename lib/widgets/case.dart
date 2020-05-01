@@ -16,7 +16,7 @@ class CaseState extends State<Case> {
   var cases = 0;
   Timer timer;
   Future getStateData() async {
-    String url = "https://corona.lmao.ninja/countries/Nigeria";
+    String url = "https://corona.lmao.ninja/v2/countries/Nigeria";
     //"https://api.covid19api.com/country/nigeria/status/confirmed/live";
     //"https://covid9ja.herokuapp.com/api/confirmed";
     http.Response response = await http.get(url);

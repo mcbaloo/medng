@@ -19,8 +19,8 @@ class _EpidermiChartState extends State<EpidermiChart> {
   void initState() {
     getStateData().then((value) {
       setState(() {
-        dataMap.putIfAbsent("Total Confirmed cases",
-            () => double.parse(value["cases"].toString()));
+        dataMap.putIfAbsent("Active cases",
+            () => double.parse(value["active"].toString()));
         dataMap.putIfAbsent(
             "Recovered", () => double.parse(value["recovered"].toString()));
         dataMap.putIfAbsent(
@@ -48,7 +48,7 @@ class _EpidermiChartState extends State<EpidermiChart> {
   }
 
   Future getStateData() async {
-    String url = "https://corona.lmao.ninja/countries/Nigeria";
+    String url = "https://corona.lmao.ninja/v2/countries/Nigeria";
     //"https://covid9ja.herokuapp.com/api/confirmed";
     http.Response response = await http.get(url);
     return json.decode(response.body);

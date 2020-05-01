@@ -138,7 +138,7 @@ Widget NcdcDetails() => Card(
             child: ListTile(
               leading: Icon(Icons.phone, size: 20),
               title:
-                  Text('0800097000010', style: TextStyle(color: Colors.black)),
+                  Text('080097000010', style: TextStyle(color: Colors.black)),
             ),
           ),
           ListTile(
